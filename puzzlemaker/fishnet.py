@@ -13,7 +13,8 @@ import ctypes
 
 import http.client as httplib
 import urllib.parse as urlparse
-import urllib
+import urllib.request as urlrequest
+#import urllib
 
 
 def stockfish_command(update=False):
@@ -85,7 +86,8 @@ def update_stockfish(filename):
                                  round(min(a * b, c) * 100 / c)))
             sys.stderr.flush()
 
-    urllib.urlretrieve(asset["browser_download_url"], filename, reporthook)
+    #urllib.urlretrieve(asset["browser_download_url"], filename, reporthook)
+    urlrequest.urlretrieve(asset["browser_download_url"], filename, reporthook)
 
     sys.stderr.write("\n")
     sys.stderr.flush()
